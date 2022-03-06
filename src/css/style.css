@@ -1,0 +1,219 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model Hack */
+*{
+  box-sizing: border-box;
+}
+
+/* background scheme */
+
+sea-green {
+  background: #729494;
+  background: #4D7A7A;
+  background: #336666;
+  background: #205353;
+  background: #0F4040;
+}
+deep-blues {
+  background: #838ea5;
+  background: #5C6989;
+  background: #3f4f73;
+  background: #29395b;
+  background: #17264a;
+  background: #060e23;
+}
+orange {
+  background: #F7D8BE;
+  background: #CCA381;
+  background: #AA7C55;
+  background: #8A5B35;
+  background: #6B3E19;
+}
+accent {
+  background: #663333;
+  background: #663351;
+  background: #653366;
+  background: #522929;
+  background: #522941;
+  background: #656633;  
+  background: #91dada;
+}
+fonts {
+  color: #e8e6e3; /* off-white */
+  color: #c8c3bc;  /* grey */
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+body {
+  background: #3F4E72;
+  font-family: "Noto Sans", sans-serif;
+}
+body > header {
+  display: flex;
+  background: #0F4040;
+  height: 75px;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+}
+header h1 {
+  color: #e8e6e3;
+  font-size: 2rem;
+}
+.container {
+  display: grid;
+  grid-template-columns: minmax(180px, 220px) 1fr;
+  grid-template-rows: 1fr;
+  width: 100%;
+}
+nav {
+  background: #205353;
+  color: #c8c3bc;
+  grid-column: 1;
+  padding: 20px;
+}
+li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+li span {
+  margin-left: auto;
+  font-size: 0.9rem;
+}
+.project-list {
+  border-top: 1px solid #c8c3bc;
+  margin: 40px 0 15px;
+  padding-top: 10px;
+}
+.projects > section {
+  margin-left: auto;
+}
+.newFolder:active, .newProject:active {
+  transform: translateY(2px);
+}
+.newFolder:hover, .newProject:hover {
+  background: #4D7A7A;
+  border-radius: 3px;
+}
+
+main {
+  background: #4D7A7A;
+  color: #e8e6e3;
+  grid-column: 2;
+  padding: 20px;
+}
+.main__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 54px;
+  border-bottom: 1px solid #e8e6e3;
+  padding-bottom: 5px;
+}
+.main__title, .addTask p {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.addTask {
+  display: flex;
+}
+.addTask p:first-of-type{
+  font-size: 2.5rem;
+  border: 3px solid #e8e6e3;
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+  padding-left: 10px;
+}
+.addTask p:last-of-type {
+  border: 3px solid #e8e6e3;
+  border-left: none;
+  border-radius: 0 5px 5px 0;
+  padding: 10px;
+}
+.addTask:active {
+  transform: translateY(2px);
+}
+.addTask:hover {
+  background: #729494;
+  border-radius: 5px;
+}
+.main__container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  gap: 10px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  background: #a5b3cf;
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #29395C;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.card h3 {
+  color: #060e23;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.card p {
+  color: #060e23;
+  line-height: 1.4;
+}
+.card .card__dueDate {
+  color: #0F4040;
+}
+.card__header {
+  display: flex;
+  justify-content: space-between;
+}
+.card__header section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.card footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.card__checklist:active, .card__priority:active, 
+.card__edit:active, .card__delete:active {
+  transform: translateY(2px);
+}
+.card__checklist:hover, .card__priority:hover, 
+.card__edit:hover {
+  background: #ccd7f0;
+  border-radius: 4px;
+}
+.card__delete:hover {
+  background: #EF6669;
+  border-radius: 4px;
+}
+
+
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+
+@media screen and (max-width: 520px) {
+  nav {
+    display: none;
+  }
+  main {
+    width: 100%;
+  }
+  
+}

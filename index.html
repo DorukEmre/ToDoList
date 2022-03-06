@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
+
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/style.css">
+
+    <title>To-Do List</title>
+
+<body>
+    <header>
+        <h1>To-Do List</h1>
+    </header>
+    <section class="container">
+        <nav>
+            <ul class="calendar">
+                <li class="today"><img src="./src/assets/calendar-today.png" alt=""><p>Today</p><span class="num">1</span></li>
+                <li class="week"><img src="./src/assets/calendar-range.png" alt=""><p>This week</p><span class="num">3</span></li>
+                <li class="upcoming"><img src="./src/assets/calendar-month.png" alt=""><p>Upcoming</p><span class="num">14</span></li>
+            </ul>
+            <ul class="project-list">
+                <li class="projects">
+                    <h4>Projects</h4>
+                    <section>
+                        <img src="./src/assets/folder-plus-outline.png" alt="" class="newFolder">
+                        <img src="./src/assets/text-box-plus-outline.png" alt="" class="newProject">
+                    </section>
+                </li>
+                <li><img src="" alt=""><p>Category1</p><span class="num"></span></li>
+                <li><img src="" alt=""><p>Category2</p><span class="num"></span></li>
+                <li><img src="" alt=""><p>Category3</p><span class="num"></span></li>
+                <li><img src="" alt=""><p>Category4</p><span class="num"></span></li>
+            </ul>
+        </nav>
+        <main>
+            <section class="main__header">
+                <h2 class="main__title">Name of project or by Date</h2>
+                <section class="addTask">
+                    <p>+</p><p> Add Task</p>
+                </section>
+            </section>
+            <section class="main__container">
+                <section class="card">
+                    <header class="card__header">
+                        <section>
+                            <img src="./src/assets/checkbox-marked-circle-outline.png" alt="" class="card__checklist">
+                            <h3 class="card__title">Groceries</h3>
+                        </section>
+                        <section>
+                            <p class="card__dueDate">23/03/2021</p>
+                            <img src="./src/assets/flag-variant.png" alt="" class="card__priority">
+                            <img src="./src/assets/square-edit-outline.png" alt="" class="card__edit">
+                        </section>
+                    </header>
+                    <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum veniam possimus harum architecto atque nam!</p>
+                    <footer class="card__footer">
+                        <img src="./src/assets/trash-can-outline.png" alt="" class="card__delete">
+                    </footer >
+                </section>
+                <section class="card">
+                    <header class="card__header">
+                        <section>
+                            <img src="./src/assets/checkbox-blank-circle-outline.png" alt="" class="card__checklist">
+                            <h3 class="card__title">Groceries</h3>
+                        </section>
+                        <section>
+                            <p class="card__dueDate">23/03/2021</p>
+                            <img src="./src/assets/flag-variant-outline.png" alt="" class="card__priority">
+                            <img src="./src/assets/square-edit-outline.png" alt="" class="card__edit">
+                        </section>
+                    </header>
+                    <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ea laboriosam soluta similique, suscipit aperiam incidunt atque velit? Quod officia vero, dolore nemo sapiente, cupiditate facere inventore illum distinctio ut porro sint similique reiciendis iure.</p>
+                    <footer class="card__footer">
+                        <img src="./src/assets/trash-can-outline.png" alt="" class="card__delete">
+                    </footer >
+                </section>
+                <section class="card">
+                    <header class="card__header">
+                        <section>
+                            <img src="./src/assets/checkbox-marked-circle-outline.png" alt="" class="card__checklist">
+                            <h3 class="card__title">Groceries</h3>
+                        </section>
+                        <section>
+                            <p class="card__dueDate">23/03/2021</p>
+                            <img src="./src/assets/flag-variant.png" alt="" class="card__priority">
+                            <img src="./src/assets/square-edit-outline.png" alt="" class="card__edit">
+                        </section>
+                    </header>
+                    <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, iure aspernatur? Odio sapiente optio cumque.</p>
+                    <footer class="card__footer">
+                        <img src="./src/assets/trash-can-outline.png" alt="" class="card__delete">
+                    </footer >
+                </section>
+                <section class="card">
+                    <header class="card__header">
+                        <section>
+                            <img src="./src/assets/checkbox-blank-circle-outline.png" alt="" class="card__checklist">
+                            <h3 class="card__title">Groceries</h3>
+                        </section>
+                        <section>
+                            <p class="card__dueDate">23/03/2021</p>
+                            <img src="./src/assets/flag-variant.png" alt="" class="card__priority">
+                            <img src="./src/assets/square-edit-outline.png" alt="" class="card__edit">
+                        </section>
+                    </header>
+                    <p class="card__description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum atque cupiditate necessitatibus animi magnam, veniam consequuntur excepturi itaque.</p>
+                    <footer class="card__footer">
+                        <img src="./src/assets/trash-can-outline.png" alt="" class="card__delete">
+                    </footer >
+                </section>
+                <section class="card">
+                    <header class="card__header">
+                        <section>
+                            <img src="./src/assets/checkbox-blank-circle-outline.png" alt="" class="card__checklist">
+                            <h3 class="card__title">Groceries</h3>
+                        </section>
+                        <section>
+                            <p class="card__dueDate">23/03/2021</p>
+                            <img src="./src/assets/flag-variant-outline.png" alt="" class="card__priority">
+                            <img src="./src/assets/square-edit-outline.png" alt="" class="card__edit">
+                        </section>
+                    </header>
+                    <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quo aspernatur voluptas autem sequi, debitis excepturi est ipsa earum error quis asperiores.</p>
+                    <footer class="card__footer">
+                        <img src="./src/assets/trash-can-outline.png" alt="" class="card__delete">
+                    </footer >
+                </section>
+            </section>
+
+        </main>
+    </section>
+</body>
+<script src="./src/start.js"></script>
+</html>
