@@ -1,12 +1,14 @@
+export let myTasks = [];
 
-export class Book {
-    constructor (title, author, pages, read, ref) {
-        this.title = title
+export class Task {
+    constructor (projectTitle, taskTitle, description, dueDate, highPriority, completed, ref) {
+        this.projectTitle = projectTitle
+        this.taskTitle = taskTitle
         this.description = description
         this.dueDate = dueDate
-        this.priority = priority
-        this.notes = notes
-        this.checklist = checklist
+        this.highPriority = highPriority
+        this.completed = completed
+        this.ref = ref
     }
 
     // set editReadStatus(arrayNumber) { 

@@ -42,100 +42,46 @@
         <main>
             <section class="main__header">
                 <h2 class="main__title">Name of project or by Date</h2>
-                <section class="addTask">
+                <button class="addTask">
                     <p>+</p><p> Add Task</p>
-                </section>
+                </button>
             </section>
+            <section class="add-task-section">
+                <form action="" id="add-task">
+                    <label>Project name: (optional)
+                        <input type="text" name="form-projectTitle" id="form-projectTitle">
+                    </label>
+                    <label>Title: 
+                        <input type="text" name="form-taskTitle" id="form-taskTitle" placeholder="Title" required>
+                    </label>
+                    <label>Date due: 
+                        <input type="date" name="form-dueDate" id="form-dueDate" value="2017-06-01" required>
+                    </label>
+                    <label>Description: 
+                        <textarea type="text" name="form-description" id="form-description" placeholder="Note" rows="5" cols="35" required></textarea>
+                    </label>
+                    <section>
+                        <p>Flag as high priority: </p>
+                        <label>
+                            <span>Yes </span>
+                            <input type="radio" name="form-priority" id="form-priority-yes" value="Yes" checked>
+                        </label>
+                        <label>
+                            <span>No </span>
+                            <input type="radio" name="form-priority" id="form-priority-no" value="No">
+                        </label>
+                    </section>
+                    <div>
+                        <button class="cancel" type="button">Cancel</button>
+                        <button class="submit" type="submit">Submit</button>
+                    </div>
+                </form>
+            </section>  
             <section class="main__container">
-                <section class="card">
-                    <header class="card__header">
-                        <section>
-                            <img src="./src/assets/checkbox-marked-circle-outline.png" alt="" class="card__checklist">
-                            <h3 class="card__title">Groceries</h3>
-                        </section>
-                        <section>
-                            <p class="card__dueDate">23/03/2021</p>
-                            <img src="./src/assets/flag-variant.png" alt="" class="card__priority">
-                            <img src="./src/assets/square-edit-outline.png" alt="" class="card__edit">
-                        </section>
-                    </header>
-                    <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum veniam possimus harum architecto atque nam!</p>
-                    <footer class="card__footer">
-                        <img src="./src/assets/trash-can-outline.png" alt="" class="card__delete">
-                    </footer >
-                </section>
-                <section class="card">
-                    <header class="card__header">
-                        <section>
-                            <img src="./src/assets/checkbox-blank-circle-outline.png" alt="" class="card__checklist">
-                            <h3 class="card__title">Groceries</h3>
-                        </section>
-                        <section>
-                            <p class="card__dueDate">23/03/2021</p>
-                            <img src="./src/assets/flag-variant-outline.png" alt="" class="card__priority">
-                            <img src="./src/assets/square-edit-outline.png" alt="" class="card__edit">
-                        </section>
-                    </header>
-                    <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ea laboriosam soluta similique, suscipit aperiam incidunt atque velit? Quod officia vero, dolore nemo sapiente, cupiditate facere inventore illum distinctio ut porro sint similique reiciendis iure.</p>
-                    <footer class="card__footer">
-                        <img src="./src/assets/trash-can-outline.png" alt="" class="card__delete">
-                    </footer >
-                </section>
-                <section class="card">
-                    <header class="card__header">
-                        <section>
-                            <img src="./src/assets/checkbox-marked-circle-outline.png" alt="" class="card__checklist">
-                            <h3 class="card__title">Groceries</h3>
-                        </section>
-                        <section>
-                            <p class="card__dueDate">23/03/2021</p>
-                            <img src="./src/assets/flag-variant.png" alt="" class="card__priority">
-                            <img src="./src/assets/square-edit-outline.png" alt="" class="card__edit">
-                        </section>
-                    </header>
-                    <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, iure aspernatur? Odio sapiente optio cumque.</p>
-                    <footer class="card__footer">
-                        <img src="./src/assets/trash-can-outline.png" alt="" class="card__delete">
-                    </footer >
-                </section>
-                <section class="card">
-                    <header class="card__header">
-                        <section>
-                            <img src="./src/assets/checkbox-blank-circle-outline.png" alt="" class="card__checklist">
-                            <h3 class="card__title">Groceries</h3>
-                        </section>
-                        <section>
-                            <p class="card__dueDate">23/03/2021</p>
-                            <img src="./src/assets/flag-variant.png" alt="" class="card__priority">
-                            <img src="./src/assets/square-edit-outline.png" alt="" class="card__edit">
-                        </section>
-                    </header>
-                    <p class="card__description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum atque cupiditate necessitatibus animi magnam, veniam consequuntur excepturi itaque.</p>
-                    <footer class="card__footer">
-                        <img src="./src/assets/trash-can-outline.png" alt="" class="card__delete">
-                    </footer >
-                </section>
-                <section class="card">
-                    <header class="card__header">
-                        <section>
-                            <img src="./src/assets/checkbox-blank-circle-outline.png" alt="" class="card__checklist">
-                            <h3 class="card__title">Groceries</h3>
-                        </section>
-                        <section>
-                            <p class="card__dueDate">23/03/2021</p>
-                            <img src="./src/assets/flag-variant-outline.png" alt="" class="card__priority">
-                            <img src="./src/assets/square-edit-outline.png" alt="" class="card__edit">
-                        </section>
-                    </header>
-                    <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quo aspernatur voluptas autem sequi, debitis excepturi est ipsa earum error quis asperiores.</p>
-                    <footer class="card__footer">
-                        <img src="./src/assets/trash-can-outline.png" alt="" class="card__delete">
-                    </footer >
-                </section>
             </section>
 
         </main>
     </section>
 </body>
-<script src="./src/start.js"></script>
+<script src="./dist/main.js"></script>
 </html>
