@@ -1,14 +1,14 @@
 export let myTasks = [];
 
 export class Task {
-    constructor (projectTitle, taskTitle, description, dueDate, highPriority, completed, ref) {
+    constructor (ref, projectTitle, taskTitle, description, dueDate, highPriority, completed) {
+        this.ref = ref
         this.projectTitle = projectTitle
         this.taskTitle = taskTitle
         this.description = description
         this.dueDate = dueDate
         this.highPriority = highPriority
         this.completed = completed
-        this.ref = ref
     }
 
     // set editReadStatus(arrayNumber) { 

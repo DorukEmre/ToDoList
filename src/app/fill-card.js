@@ -30,5 +30,6 @@ export const fillCard = (refNumber) => {
         card.classList.add("isDone");
     } else {
         iconCompleted.src = completedFalse;
+        card.classList.remove("isDone");
     }
 }

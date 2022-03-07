@@ -15,7 +15,7 @@
     <title>To-Do List</title>
 
 <body>
-    <header>
+    <header class="body__header">
         <h1>To-Do List</h1>
     </header>
     <section class="container">
@@ -42,12 +42,12 @@
         <main>
             <section class="main__header">
                 <h2 class="main__title">Name of project or by Date</h2>
-                <button class="addTask">
+                <button class="add-task-button">
                     <p>+</p><p> Add Task</p>
                 </button>
             </section>
             <section class="add-task-section">
-                <form action="" id="add-task">
+                <form action="" id="add-task-form">
                     <label>Project name: (optional)
                         <input type="text" name="form-projectTitle" id="form-projectTitle">
                     </label>
@@ -58,17 +58,17 @@
                         <input type="date" name="form-dueDate" id="form-dueDate" value="2017-06-01" required>
                     </label>
                     <label>Description: 
-                        <textarea type="text" name="form-description" id="form-description" placeholder="Note" rows="5" cols="35" required></textarea>
+                        <textarea type="text" name="form-description" id="form-description" placeholder="Note" rows="5" cols="35"></textarea>
                     </label>
                     <section>
                         <p>Flag as high priority: </p>
                         <label>
                             <span>Yes </span>
-                            <input type="radio" name="form-priority" id="form-priority-yes" value="Yes" checked>
+                            <input type="radio" name="form-priority" id="form-priority-yes" value="Yes">
                         </label>
                         <label>
                             <span>No </span>
-                            <input type="radio" name="form-priority" id="form-priority-no" value="No">
+                            <input type="radio" name="form-priority" id="form-priority-no" value="No" checked>
                         </label>
                     </section>
                     <div>
