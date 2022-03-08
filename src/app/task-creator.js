@@ -1,5 +1,3 @@
-export let myTasks = [];
-
 export class Task {
     constructor (ref, projectTitle, taskTitle, description, dueDate, highPriority, completed) {
         this.ref = ref

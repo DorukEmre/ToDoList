@@ -57,13 +57,21 @@ body > header {
   display: flex;
   background: #0F4040;
   height: 75px;
+  width: 100%;
+  justify-content: space-between;
   align-items: center;
   padding: 20px;
-  width: 100%;
 }
-header h1 {
+.body__header h1 {
   color: #e8e6e3;
   font-size: 2rem;
+}
+.body__header button {
+  background: #3f4f73;
+  color: #e8e6e3;
+  padding: 5px;
+  border: 2px solid #060e23;
+  border-radius: 5px;
 }
 .container {
   display: grid;
@@ -120,16 +128,16 @@ main {
 }
 .main__title, .add-task-button p {
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: 400;
 }
 .add-task-button {
   display: flex;
   align-items: center;
   height: 50px;
-  background: #4D7A7A;
+  background: #3f4f73;
   color: #e8e6e3;
   padding: 0;
-  border: 3px solid #CBA280;
+  border: 3px solid #060e23;
   border-radius: 5px;
 }
 .add-task-button p:first-of-type{

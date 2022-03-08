@@ -1,8 +1,7 @@
-import { addTaskToLibrary } from "./add-to-library";
+import { addTaskToLibrary, retrieveMyTasksFromLocalStorage } from "./library-management";
 import { createCard } from "./create-card";
 import { fillCard } from "./fill-card";
 import { hideAddTaskForm } from "./form-management";
-import { myTasks } from "./tasks-management";
 
 export const userAddTask = () => {
     const addTaskForm = document.querySelector("#add-task-form");
@@ -12,6 +11,7 @@ export const userAddTask = () => {
     const description = addTaskForm.elements['form-description'].value;
     const formPriority = addTaskForm.elements['form-priority'].value;
     const highPriority = (formPriority === "Yes") ? true : false;
+    const myTasks = retrieveMyTasksFromLocalStorage();
     
     let refNumberOfNewTask = 0;
     // (ref of new book) is (highest ref of myLibrary + 1)

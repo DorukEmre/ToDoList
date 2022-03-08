@@ -1,4 +1,4 @@
-import { myTasks } from "./tasks-management";
+import { retrieveMyTasksFromLocalStorage } from "./library-management";
 import flagHighPriority from "../assets/flag-variant-high.png";
 import flagLowPriority from "../assets/flag-variant-outline.png";
 import completedFalse from "../assets/checkbox-blank-circle-outline.png";
@@ -6,6 +6,7 @@ import completedTrue from "../assets/checkbox-marked-circle-outline.png";
 
 export const fillCard = (refNumber) => {
 
+    const myTasks = retrieveMyTasksFromLocalStorage();
     let arrayNumber = myTasks.findIndex( item => item.ref === refNumber )
 
     const card = document.querySelector(`[data-ref="${refNumber}"]`);
