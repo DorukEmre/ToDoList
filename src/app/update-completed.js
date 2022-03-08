@@ -1,5 +1,5 @@
 import { fillCard } from "./fill-card";
-import { retrieveMyTasksFromLocalStorage, saveMyTasksToLocalStorage } from "./library-management";
+import { retrieveMyTasksFromLocalStorage, saveMyTasksToLocalStorage } from "./storage-management";
 
 export const updateCompleted = (refNumber) => {
     console.log(`you clicked on updateCompleted for ${refNumber}`)

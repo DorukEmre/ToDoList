@@ -1,4 +1,5 @@
-import { retrieveMyTasksFromLocalStorage, saveMyTasksToLocalStorage } from "./library-management";
+import { retrieveMyTasksFromLocalStorage, saveMyTasksToLocalStorage } from "./storage-management";
+import { populateProjectsInNav } from "./populate-nav-projects";
 
 export const deleteCard = (refNumber) => {
     console.log(`you clicked on deleteCard for ${refNumber}`)
@@ -9,4 +10,5 @@ export const deleteCard = (refNumber) => {
     myTasks.splice(arrayNumber, 1)
     saveMyTasksToLocalStorage(myTasks);
     cardToDelete.remove();
+    populateProjectsInNav();
 }

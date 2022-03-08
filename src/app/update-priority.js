@@ -1,5 +1,5 @@
 import { fillCard } from "./fill-card";
-import { retrieveMyTasksFromLocalStorage, saveMyTasksToLocalStorage } from "./library-management";
+import { retrieveMyTasksFromLocalStorage, saveMyTasksToLocalStorage } from "./storage-management";
 
 export const updatePriority = (refNumber) => {
     console.log(`you clicked on updatePriority for ${refNumber}`)

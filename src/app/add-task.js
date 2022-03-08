@@ -1,7 +1,9 @@
-import { addTaskToLibrary, retrieveMyTasksFromLocalStorage } from "./library-management";
+import { addTaskToLibrary } from "./library-management";
 import { createCard } from "./create-card";
 import { fillCard } from "./fill-card";
 import { hideAddTaskForm } from "./form-management";
+import { retrieveMyTasksFromLocalStorage } from "./storage-management";
+import { populateProjectsInNav } from "./populate-nav-projects";
 
 export const userAddTask = () => {
     const addTaskForm = document.querySelector("#add-task-form");
@@ -23,4 +25,5 @@ export const userAddTask = () => {
     createCard(refNumberOfNewTask);
     fillCard(refNumberOfNewTask);
     hideAddTaskForm();
+    populateProjectsInNav();
 }

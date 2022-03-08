@@ -1,6 +1,8 @@
-import { storageManagementButtons } from "./storage-management";
+import { storageManagementButtons } from "./storage-management-buttons";
 import { displayExistingLibrary } from "./display-existing-library";
 import { addTaskFormManagement } from "./form-management";
+import { populateProjectsInNav } from "./populate-nav-projects";
+import { navListeners } from "./nav-listeners";
 
 export const start = () => {
 
@@ -8,4 +10,7 @@ export const start = () => {
 
     addTaskFormManagement();
     storageManagementButtons();
+
+    populateProjectsInNav();
+    navListeners();
 }

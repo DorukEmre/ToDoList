@@ -1,6 +1,6 @@
 import { createCard } from "./create-card";
 import { fillCard } from "./fill-card";
-import { retrieveMyTasksFromLocalStorage } from "./library-management";
+import { retrieveMyTasksFromLocalStorage } from "./storage-management";
 
 
 export const displayChosenLibrary = () => {
