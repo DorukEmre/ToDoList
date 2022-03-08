@@ -51,6 +51,7 @@ fonts {
 body {
   background: #3F4E72;
   font-family: "Noto Sans", sans-serif;
+  height: 100vh;
 }
 body > header {
   display: flex;
@@ -69,6 +70,7 @@ header h1 {
   grid-template-columns: minmax(180px, 220px) 1fr;
   grid-template-rows: 1fr;
   width: 100%;
+  height: calc(100% - 75px);
 }
 nav {
   background: #205353;
