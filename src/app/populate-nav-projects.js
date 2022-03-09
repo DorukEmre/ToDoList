@@ -3,25 +3,23 @@ import { removeAllChildNodes } from "./remove-all-child-nodes";
 import { retrieveMyTasksFromLocalStorage } from "./storage-management";
 import folderIcon from "../assets/folder-outline-24.png";
 import fileIcon from "../assets/file-outline-18.png";
+import { displayChosenProjectInMain } from "./display-chosen-library";
 
 
 export const populateProjectsInNav  = () => {
-
-    const removeAllProjectsInNav = () => {
-        const projectList = document.querySelector(".project-list");
-        removeAllChildNodes(projectList);
-    }
         
     const filterTasksByProjectTitle = () => {
 
-        removeAllProjectsInNav();
-
         const myTasks = retrieveMyTasksFromLocalStorage();
         const filteredProjectTitles = [];
+        const uncategorisedTitles = [];
 
         myTasks.forEach(task => {
-            if (!filteredProjectTitles.includes(task.projectTitle)) {
+            if (!filteredProjectTitles.includes(task.projectTitle)
+            && task.projectTitle !== "") {
                 filteredProjectTitles.push(task.projectTitle)
+            } else if (task.projectTitle === "") {
+                uncategorisedTitles.push(task.projectTitle)
             }
             filteredProjectTitles.sort((a, b) => {
                 const projectA = a.toUpperCase(); 
@@ -35,7 +33,6 @@ export const populateProjectsInNav  = () => {
               });
         });
 
-        console.log(filteredProjectTitles);
         let tasksByProject = []
 
         for ( let i = 0; i < filteredProjectTitles.length; i++) {
@@ -44,37 +41,42 @@ export const populateProjectsInNav  = () => {
             tasksByProject.push(new Category(i, project, frequency));
         }
 
-        localStorage.setItem("tasksByProject", JSON.stringify(tasksByProject));
-        console.log(tasksByProject);
-        return tasksByProject
+        return  { tasksByProject, uncategorisedTitles }
     }
 
-    const displayProjectsInNav = (() => {
+    const displayUncategorisedInNav = (() => {
+        const uncategorised = document.querySelector(".uncategorised");
+        const numberItemInCategory = uncategorised.querySelector("span");
+        const uncategorisedTitles = filterTasksByProjectTitle().uncategorisedTitles;
+        numberItemInCategory.textContent = uncategorisedTitles.length;
+    })();
 
-        const tasksByProject = filterTasksByProjectTitle();
+    const displayProjectsInNav = (() => {
         const projectList = document.querySelector(".project-list");
+        removeAllChildNodes(projectList);
+        
+        const tasksByProject = filterTasksByProjectTitle().tasksByProject;
 
         for ( let i = 0; i < tasksByProject.length; i++) {
 
             const li = document.createElement("li");
             const image = document.createElement("img")
             const categoryName = document.createElement("p");
-            const numberItemCategory = document.createElement("span");
+            const numberItemInCategory = document.createElement("span");
 
             li.dataset.cat= tasksByProject[i].ref;
             categoryName.textContent = tasksByProject[i].projectTitle;
-            numberItemCategory.textContent = tasksByProject[i].frequency;
-            
-            if (tasksByProject[i].projectTitle === "") {
-                image.src = fileIcon;
-            } else if (tasksByProject[i].projectTitle !== "") {
-                image.src = folderIcon;                
-            }
+            numberItemInCategory.textContent = tasksByProject[i].frequency;
+            image.src = folderIcon;  
 
             projectList.appendChild(li);
             li.appendChild(image);
             li.appendChild(categoryName);
-            li.appendChild(numberItemCategory);
+            li.appendChild(numberItemInCategory);
+
+            li.addEventListener('click', () => {
+                displayChosenProjectInMain("Project", tasksByProject[i].projectTitle);                
+            })
         }
     })();
 }

@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">  -->
 
     <link rel="stylesheet" href="./src/css/reset.css">
     <link rel="stylesheet" href="./src/css/style.css">
@@ -29,6 +29,11 @@
                 <li class="week"><img src="./src/assets/calendar-range.png" alt=""><p>This week</p><span class="num">3</span></li>
                 <li class="upcoming"><img src="./src/assets/calendar-month.png" alt=""><p>Upcoming</p><span class="num">14</span></li>
             </ul>
+            <section class="uncategorised">
+                <img src="./src/assets/file-multiple-outline-20.png" alt="">
+                <h4>Uncategorised</h4>
+                <span class="num">0</span>
+            </section>
             <section class="projects">
                 <h4>Projects</h4>
                 <section>
@@ -41,9 +46,9 @@
         </nav>
         <main>
             <section class="main__header">
-                <h2 class="main__title">Name of project or by Date</h2>
+                <h2 class="main__title">Welcome!</h2>
                 <button class="add-task-button">
-                    <p>+</p><p> Add Task</p>
+                    <img src="./src/assets/text-box-plus-outline-36.png" alt=""><p> Add Task</p>
                 </button>
             </section>
             <section class="add-task-section">
@@ -55,7 +60,7 @@
                         <input type="text" name="form-taskTitle" id="form-taskTitle" placeholder="Title" required>
                     </label>
                     <label>Date due: 
-                        <input type="date" name="form-dueDate" id="form-dueDate" value="2017-06-01" required>
+                        <input type="date" name="form-dueDate" id="form-dueDate" value="" required>
                     </label>
                     <label>Description: 
                         <textarea type="text" name="form-description" id="form-description" placeholder="Note" rows="5" cols="35"></textarea>

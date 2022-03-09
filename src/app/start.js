@@ -3,6 +3,7 @@ import { displayExistingLibrary } from "./display-existing-library";
 import { addTaskFormManagement } from "./form-management";
 import { populateProjectsInNav } from "./populate-nav-projects";
 import { navListeners } from "./nav-listeners";
+import { format } from "date-fns";
 
 export const start = () => {
 
@@ -12,5 +13,10 @@ export const start = () => {
     storageManagementButtons();
 
     populateProjectsInNav();
-    navListeners();
+    navListeners(); 
+
+    const setTodaysDate = (() => {
+        const dueDate = document.querySelector("#form-dueDate");
+        dueDate.valueAsDate = new Date();
+    })();
 }

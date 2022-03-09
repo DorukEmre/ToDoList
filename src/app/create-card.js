@@ -16,6 +16,8 @@ export const createCard = (refNumber) => {
     iconCompleted.classList.add("card__completed");
     const cardTitle = document.createElement("h3");
     cardTitle.classList.add("card__title");
+    const projectTitle = document.createElement("p");
+    projectTitle.classList.add("card__project");
     const cardDueDate = document.createElement("p");
     cardDueDate.classList.add("card__dueDate");
     const iconPriority = document.createElement("img");
@@ -39,6 +41,7 @@ export const createCard = (refNumber) => {
     header.appendChild(headerRight);
     headerLeft.appendChild(iconCompleted);
     headerLeft.appendChild(cardTitle);
+    headerRight.appendChild(projectTitle);
     headerRight.appendChild(cardDueDate);
     headerRight.appendChild(iconPriority);
     headerRight.appendChild(iconEdit);
