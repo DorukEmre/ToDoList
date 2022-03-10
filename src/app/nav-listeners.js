@@ -14,12 +14,17 @@ export const navListeners  = () => {
 
     const thisWeek = document.querySelector(".week")
     thisWeek.addEventListener('click', () => {
-        displayChosenProjectInMain("Date", "This week");            
+        displayChosenProjectInMain("Date", "Next seven days");            
     })
 
     const upcoming = document.querySelector(".upcoming")
     upcoming.addEventListener('click', () => {
         displayChosenProjectInMain("Date", "Upcoming tasks");            
+    })
+
+    const past = document.querySelector(".past")
+    past.addEventListener('click', () => {
+        displayChosenProjectInMain("Date", "Past tasks");            
     })
 
 }

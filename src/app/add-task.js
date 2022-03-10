@@ -27,11 +27,8 @@ export const userAddTask = () => {
     fillCard(refNumberOfNewTask);
     hideAddTaskForm();
     populateProjectsInNav();
-    let type = ""
-    if (projectTitle === "") {
-        type = "Uncategorised"
-    } else if (projectTitle !== "") {
-        type = "Project"
-    }
+    
+    let type = "";
+    (projectTitle === "") ? (type = "Uncategorised") : (type = "Project");
     displayChosenProjectInMain(type, projectTitle);
 }

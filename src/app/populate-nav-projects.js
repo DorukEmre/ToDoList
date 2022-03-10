@@ -4,6 +4,7 @@ import { retrieveMyTasksFromLocalStorage } from "./storage-management";
 import folderIcon from "../assets/folder-outline-24.png";
 import fileIcon from "../assets/file-outline-18.png";
 import { displayChosenProjectInMain } from "./display-chosen-library";
+import { countTasksByDate, countUncategorisedTasks } from "./count-tasks";
 
 
 export const populateProjectsInNav  = () => {
@@ -12,15 +13,12 @@ export const populateProjectsInNav  = () => {
 
         const myTasks = retrieveMyTasksFromLocalStorage();
         const filteredProjectTitles = [];
-        const uncategorisedTitles = [];
 
         myTasks.forEach(task => {
             if (!filteredProjectTitles.includes(task.projectTitle)
             && task.projectTitle !== "") {
                 filteredProjectTitles.push(task.projectTitle)
-            } else if (task.projectTitle === "") {
-                uncategorisedTitles.push(task.projectTitle)
-            }
+            } 
             filteredProjectTitles.sort((a, b) => {
                 const projectA = a.toUpperCase(); 
                 const projectB = b.toUpperCase(); 
@@ -41,14 +39,28 @@ export const populateProjectsInNav  = () => {
             tasksByProject.push(new Category(i, project, frequency));
         }
 
-        return  { tasksByProject, uncategorisedTitles }
+        return  { tasksByProject }
     }
+
+    const displayCategoryByDateInNav = (() => {
+        const today = document.querySelector(".today")
+        const thisWeek = document.querySelector(".week")
+        const upcoming = document.querySelector(".upcoming")
+        const past = document.querySelector(".past")
+        const numberItemInToday = today.querySelector("span");
+        const numberItemInThisWeek = thisWeek.querySelector("span");
+        const numberItemInUpcoming = upcoming.querySelector("span");
+        const numberItemInPast = past.querySelector("span");
+        numberItemInToday.textContent = countTasksByDate("Today");
+        numberItemInThisWeek.textContent = countTasksByDate("Next seven days");;
+        numberItemInUpcoming.textContent = countTasksByDate("Upcoming tasks");
+        numberItemInPast.textContent = countTasksByDate("Past");
+    })();
 
     const displayUncategorisedInNav = (() => {
         const uncategorised = document.querySelector(".uncategorised");
         const numberItemInCategory = uncategorised.querySelector("span");
-        const uncategorisedTitles = filterTasksByProjectTitle().uncategorisedTitles;
-        numberItemInCategory.textContent = uncategorisedTitles.length;
+        numberItemInCategory.textContent = countUncategorisedTasks();
     })();
 
     const displayProjectsInNav = (() => {

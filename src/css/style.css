@@ -96,12 +96,15 @@ nav span {
   margin-left: auto;
   font-size: 0.9rem;
 }
+.calendar li:last-of-type {
+  margin: 25px 0 0;
+}
 .uncategorised {  
   border-top: 1px solid #c8c3bc;
   display: flex;
   gap: 10px;
   align-items: center;
-  margin: 45px 0 0;
+  margin: 15px 0 0;
   padding-top: 15px;
 }
 .projects {
@@ -115,15 +118,6 @@ nav span {
 .projects > section {
   margin-left: auto;
   display: none;
-}
-.newFolder:active, .newProject:active {
-  transform: translateY(2px);
-}
-.newFolder:hover, .newProject:hover {
-  background: #4D7A7A;
-  border-radius: 3px;
-}
-.project-list > li {
 }
 .uncategorised:hover, 
 .calendar > li:hover,

@@ -2,7 +2,7 @@ import { createCard } from "./create-card";
 import { fillCard } from "./fill-card";
 import { removeAllChildNodes } from "./remove-all-child-nodes";
 import { retrieveMyTasksFromLocalStorage } from "./storage-management";
-import { format, parseISO, compareAsc } from 'date-fns'
+import { addDays, compareAsc, format, isAfter, isBefore, isWithinInterval, parseISO } from 'date-fns'
 
 
 export const displayChosenProjectInMain = (type, libraryProjectTitle) => {
@@ -21,23 +21,34 @@ export const displayChosenProjectInMain = (type, libraryProjectTitle) => {
     if (myTasks === []) { return };
 
     let projectToBeDisplayed = [];
-    if (type !== "Date") {
-        myTasks.forEach( task => {
-            if (task.projectTitle === libraryProjectTitle) {
+
+    myTasks.forEach( task => {
+        if (type !== "Date"
+        && task.projectTitle === libraryProjectTitle) {
                 projectToBeDisplayed.push(task)
-                console.log(task.dueDate)
-                console.log(format(new Date(),'yyyy-MM-dd'))
-            }
-        })
-    } else if (libraryProjectTitle === "Today") {
-        myTasks.forEach( task => {
-            if (task.dueDate === format(new Date(),'yyyy-MM-dd')) {
+            
+        } else if (libraryProjectTitle === "Today"
+        && task.dueDate === format(new Date(),'yyyy-MM-dd')) {
                 projectToBeDisplayed.push(task)
-            }
-        })
-    }
+            
+        } else if (libraryProjectTitle === "Next seven days"
+        && isWithinInterval(parseISO(task.dueDate), {
+                start: new Date(),
+                end: addDays(new Date(), 7)
+            })) {
+                projectToBeDisplayed.push(task)
+
+        } else if (libraryProjectTitle === "Upcoming tasks"
+        && isAfter(parseISO(task.dueDate), parseISO(format(new Date(),'yyyy-MM-dd')))) {
+                projectToBeDisplayed.push(task)
+                
+        } else if (libraryProjectTitle === "Past tasks"
+        && isBefore(parseISO(task.dueDate), parseISO(format(new Date(),'yyyy-MM-dd')))) {
+                projectToBeDisplayed.push(task)                
+        }
+    });
     
-    
+    // sort by date
     projectToBeDisplayed.sort((a, b) => {       
         if (compareAsc(parseISO(a.dueDate), parseISO(b.dueDate)) === -1) {
           return -1;
