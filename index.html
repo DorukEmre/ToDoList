@@ -76,8 +76,8 @@
                         </label>
                     </section>
                     <div>
-                        <button class="cancel" type="button">Cancel</button>
-                        <button class="submit" type="submit">Submit</button>
+                        <button class="cancel-add" type="button">Cancel</button>
+                        <button class="submit-add" type="submit">Submit</button>
                     </div>
                 </form>
             </section>  
@@ -85,6 +85,37 @@
             </section>
 
         </main>
+        <section class="edit-section">
+            <form action="" id="edit-form">
+                <label>Project name: (optional)
+                    <input type="text" name="edit-projectTitle" id="edit-projectTitle">
+                </label>
+                <label>Title: 
+                    <input type="text" name="edit-taskTitle" id="edit-taskTitle" placeholder="Title" required>
+                </label>
+                <label>Date due: 
+                    <input type="date" name="edit-dueDate" id="edit-dueDate" value="" required>
+                </label>
+                <label>Description: 
+                    <textarea type="text" name="edit-description" id="edit-description" placeholder="Note" rows="5" cols="35"></textarea>
+                </label>
+                <section>
+                    <p>Flag as high priority: </p>
+                    <label>
+                        <span>Yes </span>
+                        <input type="radio" name="edit-priority" id="edit-priority-yes" value="Yes">
+                    </label>
+                    <label>
+                        <span>No </span>
+                        <input type="radio" name="edit-priority" id="edit-priority-no" value="No">
+                    </label>
+                </section>
+                <div>
+                    <button class="cancel-edit" type="button">Cancel</button>
+                    <button class="submit-edit" type="submit">Change</button>
+                </div>
+            </form>
+        </section>
     </section>
 </body>
 <script src="./dist/main.js"></script>
