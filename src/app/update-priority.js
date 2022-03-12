@@ -1,9 +1,8 @@
+import { updateTasksInNavIfDisplayed } from "./display-tasks-in-nav";
 import { fillCard } from "./fill-card";
 import { retrieveMyTasksFromLocalStorage, saveMyTasksToLocalStorage } from "./storage-management";
 
 export const updatePriority = (refNumber) => {
-    console.log(`you clicked on updatePriority for ${refNumber}`)
-    
     const myTasks = retrieveMyTasksFromLocalStorage();
     const arrayNumber = myTasks.findIndex( item => item.ref === refNumber )
     
@@ -11,4 +10,6 @@ export const updatePriority = (refNumber) => {
    
     saveMyTasksToLocalStorage(myTasks);
     fillCard(refNumber);
+
+    updateTasksInNavIfDisplayed();
 }

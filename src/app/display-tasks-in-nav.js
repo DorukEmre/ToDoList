@@ -1,6 +1,7 @@
 import { compareAsc, parseISO } from "date-fns";
 import fileIcon from "../assets/file-outline-18.png";
 import { tasksNavListeners } from "./nav-listeners";
+import { populateProjectsInNav } from "./populate-nav-projects";
 import { retrieveMyTasksFromLocalStorage } from "./storage-management";
 
 export const displayTasksByCategoryInNav = (ref, projectTitle) => {
@@ -65,4 +66,39 @@ export const clearTasksByCategoryInNav = () => {
     const tasksList = document.querySelector(".tasks-list");
     if (tasksList === null) { return };
     tasksList.remove();
+}
+
+export const updateTasksInNavIfDisplayed = () => {
+    if (document.querySelector(".tasks-list")) {
+        const tasksList = document.querySelector(".tasks-list");
+        const parent = tasksList.parentElement;
+        
+        if (parent.className === "uncategorised") {
+            populateProjectsInNav(); 
+            clearTasksByCategoryInNav();
+            displayTasksByCategoryInNav("", "");
+        } else if (parent.className === "") {
+            let tasksByProject = JSON.parse(localStorage.getItem("tasksByProject"));
+            let catNumber = parent.dataset.cat;
+            const presentProject = tasksByProject[parent.dataset.cat].projectTitle;
+            
+            populateProjectsInNav();
+            clearTasksByCategoryInNav();
+            displayTasksByCategoryInNav(catNumber, presentProject)
+            // if (presentProject === projectTitle) {
+            //     populateProjectsInNav();
+            //     displayTasksByCategoryInNav(catNumber, projectTitle)
+            // } else {
+            //     populateProjectsInNav();
+            //     tasksByProject = JSON.parse(localStorage.getItem("tasksByProject"));
+            //     tasksByProject.forEach(task => {
+            //         if (task.projectTitle === projectTitle) {
+            //             catNumber = task.ref;
+            //         }
+            //     })
+            //     displayTasksByCategoryInNav(catNumber, projectTitle)
+            // }
+        }
+
+    }
 }

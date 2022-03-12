@@ -2,7 +2,6 @@ import { retrieveMyTasksFromLocalStorage, saveMyTasksToLocalStorage } from "./st
 import { populateProjectsInNav } from "./populate-nav-projects";
 
 export const deleteCard = (refNumber) => {
-    console.log(`you clicked on deleteCard for ${refNumber}`)
     const myTasks = retrieveMyTasksFromLocalStorage();
     const arrayNumber = myTasks.findIndex( item => item.ref === refNumber )
     const cardToDelete = document.querySelector(`[data-ref="${refNumber}"]`);
