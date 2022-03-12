@@ -5,6 +5,7 @@ import { hideAddTaskForm } from "./form-management";
 import { retrieveMyTasksFromLocalStorage } from "./storage-management";
 import { populateProjectsInNav } from "./populate-nav-projects";
 import { displayChosenProjectInMain } from "./display-chosen-library";
+import { clearTasksByCategoryInNav, displayTasksByCategoryInNav } from "./display-tasks-in-nav";
 
 export const userAddTask = () => {
     const addTaskForm = document.querySelector("#add-task-form");
@@ -26,7 +27,36 @@ export const userAddTask = () => {
     createCard(refNumberOfNewTask);
     fillCard(refNumberOfNewTask);
     hideAddTaskForm();
-    populateProjectsInNav();
+
+    if (document.querySelector(".tasks-list")) {
+        const tasksList = document.querySelector(".tasks-list");
+        const parent = tasksList.parentElement;
+        
+        if (parent.className === "uncategorised") {
+            populateProjectsInNav();
+            displayTasksByCategoryInNav("", "");
+        } else if (parent.className === "") {
+            let tasksByProject = JSON.parse(localStorage.getItem("tasksByProject"));
+            let catNumber = parent.dataset.cat;
+            const presentProject = tasksByProject[parent.dataset.cat].projectTitle;
+            if (presentProject === projectTitle) {
+                populateProjectsInNav();
+                displayTasksByCategoryInNav(catNumber, projectTitle)
+            } else {
+                populateProjectsInNav();
+                tasksByProject = JSON.parse(localStorage.getItem("tasksByProject"));
+                tasksByProject.forEach(task => {
+                    if (task.projectTitle === projectTitle) {
+                        catNumber = task.ref;
+                    }
+                })
+                displayTasksByCategoryInNav(catNumber, projectTitle)
+            }
+        }
+
+    } else {
+        populateProjectsInNav();
+    }
     
     let type = "";
     (projectTitle === "") ? (type = "Uncategorised") : (type = "Project");

@@ -1,5 +1,6 @@
 import { addDays, format, subDays } from "date-fns";
 import { displayExistingLibrary } from "./display-existing-library";
+import { clearTasksByCategoryInNav } from "./display-tasks-in-nav";
 import { addTaskToLibrary } from "./library-management";
 import { populateProjectsInNav } from "./populate-nav-projects";
 import { removeAllChildNodes } from "./remove-all-child-nodes";
@@ -30,6 +31,10 @@ const addDemoTasks = () => {
 }
 
 const clearLocalStorage = () => {
+    const mainTitle = document.querySelector(".main__title");
+    mainTitle.textContent = ""; 
+    clearTasksByCategoryInNav();
+            
     localStorage.clear();
     const mainContainer = document.querySelector(".main__container")
     removeAllChildNodes(mainContainer);

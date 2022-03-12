@@ -23,8 +23,12 @@ export const displayChosenProjectInMain = (type, libraryProjectTitle) => {
     let projectToBeDisplayed = [];
 
     myTasks.forEach( task => {
-        if (type !== "Date"
+        if ((type === "Uncategorised" || type === "Project")
         && task.projectTitle === libraryProjectTitle) {
+                projectToBeDisplayed.push(task)
+            
+        } else if ((type === "Task")
+        && task.taskTitle === libraryProjectTitle) {
                 projectToBeDisplayed.push(task)
             
         } else if (libraryProjectTitle === "Today"

@@ -87,7 +87,7 @@ nav {
   grid-column: 1;
   padding: 20px;
 }
-nav li {
+nav .calendar li {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -102,11 +102,13 @@ nav span {
 }
 .uncategorised {  
   border-top: 1px solid #c8c3bc;
+  margin: 15px 0 0;
+  padding-top: 15px;
+}
+.uncategorised > section {  
   display: flex;
   gap: 10px;
   align-items: center;
-  margin: 15px 0 0;
-  padding-top: 15px;
 }
 .projects {
   border-top: 1px solid #c8c3bc;
@@ -116,13 +118,27 @@ nav span {
   margin: 15px 0 0;
   padding-top: 15px;
 }
-.projects > section {
-  margin-left: auto;
-  display: none;
+.project-list > li section,
+.tasks-list > li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
 }
-.uncategorised:hover, 
+
+.tasks-list > li {
+  margin-left: 20px;
+}
+.tasks-list > li.completed p {
+  text-decoration: line-through;
+}
+.tasks-list > li.priority p {
+  color: #D64832;
+}
+
+.uncategorised > section:hover, 
 .calendar > li:hover,
-.project-list > li:hover {
+.project-list > li > section:hover {
   color: white;
 }
 
@@ -297,6 +313,11 @@ main {
 }
 .card .card__project {
   color: #8A5B35;
+  padding: 0 2px;
+}
+.card .card__project:hover {
+  background: #ccd7f0;
+  border-radius: 4px;
 }
 .card .card__dueDate {
   color: #0F4040;

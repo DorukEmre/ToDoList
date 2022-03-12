@@ -2,9 +2,8 @@ import { Category } from "./category-creator";
 import { removeAllChildNodes } from "./remove-all-child-nodes";
 import { retrieveMyTasksFromLocalStorage } from "./storage-management";
 import folderIcon from "../assets/folder-outline-24.png";
-import fileIcon from "../assets/file-outline-18.png";
-import { displayChosenProjectInMain } from "./display-chosen-library";
 import { countTasksByDate, countUncategorisedTasks } from "./count-tasks";
+import { projectNavListeners } from "./nav-listeners";
 
 
 export const populateProjectsInNav  = () => {
@@ -39,6 +38,8 @@ export const populateProjectsInNav  = () => {
             tasksByProject.push(new Category(i, project, frequency));
         }
 
+        localStorage.setItem("tasksByProject", JSON.stringify(tasksByProject));
+
         return  { tasksByProject }
     }
 
@@ -72,7 +73,8 @@ export const populateProjectsInNav  = () => {
         for ( let i = 0; i < tasksByProject.length; i++) {
 
             const li = document.createElement("li");
-            const image = document.createElement("img")
+            const section = document.createElement("section");
+            const image = document.createElement("img");
             const categoryName = document.createElement("p");
             const numberItemInCategory = document.createElement("span");
 
@@ -82,14 +84,12 @@ export const populateProjectsInNav  = () => {
             image.src = folderIcon;  
 
             projectList.appendChild(li);
-            li.appendChild(image);
-            li.appendChild(categoryName);
-            li.appendChild(numberItemInCategory);
+            li.appendChild(section);
+            section.appendChild(image);
+            section.appendChild(categoryName);
+            section.appendChild(numberItemInCategory);
 
-            li.addEventListener('click', () => {
-                displayChosenProjectInMain("Project", tasksByProject[i].projectTitle);                
-            })
+            projectNavListeners(tasksByProject[i], section);            
         }
     })();
 }
-
