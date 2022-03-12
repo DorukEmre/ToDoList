@@ -22,7 +22,7 @@ export const fillCard = (refNumber) => {
     cardTitle.textContent = myTasks[arrayNumber].taskTitle;
     cardDescription.textContent = myTasks[arrayNumber].description;
 
-    var displayDate = format(parseISO(myTasks[arrayNumber].dueDate), 'E do LLL yy') // 'dd/MM/yyyy'
+    const displayDate = format(parseISO(myTasks[arrayNumber].dueDate), 'E do LLL yy') // 'dd/MM/yyyy'
     cardDueDate.textContent = displayDate;
 
     if (myTasks[arrayNumber].highPriority) {

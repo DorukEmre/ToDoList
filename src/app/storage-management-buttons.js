@@ -1,3 +1,4 @@
+import { addDays, format, subDays } from "date-fns";
 import { displayExistingLibrary } from "./display-existing-library";
 import { addTaskToLibrary } from "./library-management";
 import { populateProjectsInNav } from "./populate-nav-projects";
@@ -12,11 +13,17 @@ export const storageManagementButtons = () => {
 }
 
 const addDemoTasks = () => {
+    clearLocalStorage();
     // demo tasks
-    addTaskToLibrary(1, "New Website", "Find designer", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum veniam possimus harum architecto atque nam!", "10/03/2022", true, true)
-    addTaskToLibrary(2, "New Website", "Find host", "Lorem ipsum dolor sit amet consectetur. Eum veniam possimus harum architecto atque adipisicing elit. Eum veniam possimus harum architecto atque nam!", "15/03/2022", false, false)
-    addTaskToLibrary(3, "Housekeeping", "Groceries", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum veniam possimus harum architecto atque nam!", "18/03/2022", true, false)
-    addTaskToLibrary(4, "New Website", "Take the bins out", "Atque adipisicing elit.", "11/05/2022", false, true)
+    addTaskToLibrary(1, "Housekeeping", "Take the bins out", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum veniam possimus harum architecto atque nam!", format(new Date(), 'yyyy-MM-dd').toString(), true, true);
+    addTaskToLibrary(2, "Housekeeping", "Hoover living room", "Lorem ipsum dolor sit amet consectetur. Eum veniam possimus harum architecto atque adipisicing elit. Eum veniam possimus harum architecto atque nam!", format(new Date(), 'yyyy-MM-dd').toString(), false, false);
+    addTaskToLibrary(3, "Housekeeping", "Clean the oven", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum veniam possimus harum architecto atque nam!", format(addDays(new Date(), 3), 'yyyy-MM-dd').toString(), true, false);
+    addTaskToLibrary(4, "Gardening", "Weed front patch", "", format(new Date(), 'yyyy-MM-dd').toString(), false, true);
+    addTaskToLibrary(5, "Gardening", "Turn compost", "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias et debitis quod, cum recusandae, officiis accusamus mollitia ea, sequi odio fuga vero dolorem.", format(addDays(new Date(), 9), 'yyyy-MM-dd').toString(), true, false);
+    addTaskToLibrary(6, "", "Call mum", "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur.", format(addDays(new Date(), 15), 'yyyy-MM-dd').toString(), false, false);
+    addTaskToLibrary(7, "", "Change bike chain", "Atque adipisicing elit.", format(addDays(new Date(), 28), 'yyyy-MM-dd').toString(), false, false);
+    addTaskToLibrary(8, "Housekeeping", "Paint cupboard", "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero sit tempora odio dolorum vitae.", format(subDays(new Date(), 12), 'yyyy-MM-dd').toString(), false, true);
+    addTaskToLibrary(9, "Gardening", "Build raised beds", "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id maiores dicta labore blanditiis ratione ipsum rem adipisci et!", format(subDays(new Date(), 3), 'yyyy-MM-dd').toString(), false, true);
 
     displayExistingLibrary();
     populateProjectsInNav();
