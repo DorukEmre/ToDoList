@@ -6,12 +6,13 @@ import { retrieveMyTasksFromLocalStorage } from "./storage-management";
 import { populateProjectsInNav } from "./populate-nav-projects";
 import { displayChosenProjectInMain } from "./display-chosen-library";
 import { clearTasksByCategoryInNav, displayTasksByCategoryInNav } from "./display-tasks-in-nav";
+import { format } from "date-fns";
 
 export const userAddTask = () => {
     const addTaskForm = document.querySelector("#add-task-form");
     const projectTitle = addTaskForm.elements['form-projectTitle'].value;
     const taskTitle = addTaskForm.elements['form-taskTitle'].value;
-    const dueDate = addTaskForm.elements['form-dueDate'].value;
+    let dueDate = addTaskForm.elements['form-dueDate'].value;
     const description = addTaskForm.elements['form-description'].value;
     const formPriority = addTaskForm.elements['form-priority'].value;
     const highPriority = (formPriority === "Yes") ? true : false;
@@ -21,6 +22,10 @@ export const userAddTask = () => {
     // (ref of new book) is (highest ref of myLibrary + 1)
     if (myTasks.length > 0) {
         refNumberOfNewTask = (myTasks.reduce((a, b) => (a.ref > b.ref) ? a : b).ref) + 1;
+    }
+    
+    if (dueDate === "") {
+        dueDate = format(new Date(), 'yyyy-MM-dd');
     }
 
     addTaskToLibrary(refNumberOfNewTask, projectTitle, taskTitle, description, dueDate, highPriority, false);
