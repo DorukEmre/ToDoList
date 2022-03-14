@@ -11,7 +11,7 @@
 /* LAYOUT
 /*******************************************/
 body {
-  background: #3F4E72;
+  background: #4D7A7A;
   font-family: "Noto Sans", sans-serif;
   height: 100vh;
 }
@@ -135,6 +135,7 @@ main {
   padding: 0;
   border: 3px solid #060e23;
   border-radius: 5px;
+  min-width: 153px;
 }
 .add-task-button img {
   padding-left: 10px;
@@ -370,21 +371,40 @@ main {
   .container {
     display: block;
   }
-  nav {
-    display: none;
+  nav .calendar li.today {
+    margin-top: 0;
   }
   main {
     width: 100%;
   }
+  .main__title {
+    font-size: 1.5rem;
+  }
+  .add-task-button {
+    min-width: 143px;
+  }
+  .add-task-button img {
+    padding-left: 5px;
+  }
+  .add-task-button p {
+    padding: 5px;
+  }
+  .tasks-list {
+    display: none;
+  }
   .card__header {
     flex-direction: column;
   }
-  .card__header section {
+  .card__header section:first-of-type {
     justify-content: flex-start;
   }
+  .card__header section:last-of-type {
+    justify-content: flex-end;
+  }
   .add-task-section,
-.edit-section {
-  left: 4%;
-}
+  .edit-section {
+    top: 20vh;
+    left: 4%;
+  }  
   
 }  

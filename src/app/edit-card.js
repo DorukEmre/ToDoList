@@ -9,6 +9,9 @@ export const editCard = (refNumber) => {
 
     displayEditForm();
 
+    const editForm = document.querySelector("#edit-form");
+    editForm.scrollIntoView();
+
     const myTasks = retrieveMyTasksFromLocalStorage();
     let arrayNumber = myTasks.findIndex( item => item.ref === refNumber );
 
@@ -18,7 +21,6 @@ export const editCard = (refNumber) => {
     const currentDueDate = myTasks[arrayNumber].dueDate;
     const currentPriority = myTasks[arrayNumber].highPriority;
 
-    const editForm = document.querySelector("#edit-form");
     editForm.dataset.arrayNumber = arrayNumber;
     editForm.dataset.refNumber = refNumber;
     const projectTitleToEdit = editForm.querySelector("#edit-projectTitle");
