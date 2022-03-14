@@ -12,7 +12,6 @@ export const editCard = (refNumber) => {
     const myTasks = retrieveMyTasksFromLocalStorage();
     let arrayNumber = myTasks.findIndex( item => item.ref === refNumber );
 
-    const ref = myTasks[arrayNumber].ref;
     const currentProjectTitle = myTasks[arrayNumber].projectTitle;
     const currentTaskTitle = myTasks[arrayNumber].taskTitle;
     const currentDescription = myTasks[arrayNumber].description;
@@ -35,11 +34,6 @@ export const editCard = (refNumber) => {
     const cardPriorityToEditNo = editForm.querySelector("#edit-priority-no");
     (currentPriority) ? cardPriorityToEditYes.checked = true
         : cardPriorityToEditNo.checked = true;
-
-
-
-    console.log(`you clicked on editCard for ${refNumber}`)
-    
 }
 
 export const submitEdit = () => {
@@ -63,38 +57,21 @@ export const submitEdit = () => {
     fillCard(refNumber);
     hideEditForm();
 
-    if (document.querySelector(".tasks-list")) {
-        const tasksList = document.querySelector(".tasks-list");
-        const parent = tasksList.parentElement;
-        
-        if (parent.className === "uncategorised") {
-            populateProjectsInNav();
-            clearTasksByCategoryInNav();
-            displayTasksByCategoryInNav("", "");
-        } else if (parent.className === "") {
-            let tasksByProject = JSON.parse(localStorage.getItem("tasksByProject"));
-            let catNumber = parent.dataset.cat;
-            const presentProject = tasksByProject[parent.dataset.cat].projectTitle;
-            if (presentProject === myTasks[arrayNumber].projectTitle) {
-                populateProjectsInNav();
-                clearTasksByCategoryInNav();
-                displayTasksByCategoryInNav(catNumber, myTasks[arrayNumber].projectTitle)
-            } else {
-                populateProjectsInNav();
-                tasksByProject = JSON.parse(localStorage.getItem("tasksByProject"));
-                tasksByProject.forEach(task => {
-                    if (task.projectTitle === myTasks[arrayNumber].projectTitle) {
-                        catNumber = task.ref;
-                    }
-                })
-                clearTasksByCategoryInNav();
-                displayTasksByCategoryInNav(catNumber, myTasks[arrayNumber].projectTitle)
-            }
-        }
+    populateProjectsInNav();
+    clearTasksByCategoryInNav();
 
-    } else {
-        populateProjectsInNav();
-    }
+    let catNumber = 0;
+    if (myTasks[arrayNumber].projectTitle === "") {
+        displayTasksByCategoryInNav("", "");
+    } else if (myTasks[arrayNumber].projectTitle !== "") {
+        let tasksByProject = JSON.parse(localStorage.getItem("tasksByProject"));
+        tasksByProject.forEach(task => {
+            if (task.projectTitle === myTasks[arrayNumber].projectTitle) {
+                catNumber = task.ref;
+            }
+        })
+        displayTasksByCategoryInNav(catNumber, myTasks[arrayNumber].projectTitle)
+    };
     
     let type = "";
     (myTasks[arrayNumber].projectTitle === "") ? (type = "Uncategorised") : (type = "Project");

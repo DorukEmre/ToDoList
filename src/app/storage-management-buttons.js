@@ -27,6 +27,7 @@ const addDemoTasks = () => {
     addTaskToLibrary(9, "Gardening", "Build raised beds", "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id maiores dicta labore blanditiis ratione ipsum rem adipisci et!", format(subDays(new Date(), 3), 'yyyy-MM-dd').toString(), false, true);
 
     displayExistingLibrary();
+    clearTasksByCategoryInNav();
     populateProjectsInNav();
 }
 

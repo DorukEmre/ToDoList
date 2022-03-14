@@ -3,46 +3,8 @@
 /*******************************************/
 
 /* Box Model Hack */
-*{
+* {
   box-sizing: border-box;
-}
-
-/* background scheme */
-
-sea-green {
-  background: #729494;
-  background: #4D7A7A;
-  background: #336666;
-  background: #205353;
-  background: #0F4040;
-}
-deep-blues {
-  background: #838ea5;
-  background: #5C6989;
-  background: #3f4f73;
-  background: #29395b;
-  background: #17264a;
-  background: #060e23;
-}
-orange {
-  background: #F7D8BE;
-  background: #CCA381;
-  background: #AA7C55;
-  background: #8A5B35;
-  background: #6B3E19;
-}
-accent {
-  background: #663333;
-  background: #663351;
-  background: #653366;
-  background: #522929;
-  background: #522941;
-  background: #656633;  
-  background: #91dada;
-}
-fonts {
-  color: #e8e6e3; /* off-white */
-  color: #c8c3bc;  /* grey */
 }
 
 /******************************************
@@ -201,9 +163,17 @@ main {
   color: black;
   border: 2px solid black;
   border-radius: 3px;
-  box-shadow: 0px 0px 16px 6px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 8px 2px rgba(0,0,0,0.5);
   z-index: 100;
   visibility: hidden;
+}
+.add-task-section {
+  background: #838ea5;
+  color: black;
+}
+.edit-section {
+  background: #CBA280;
+  color: black;
 }
 .add-task-section.popup,
 .edit-section.popup {
@@ -339,6 +309,7 @@ main {
 }
 .card .card__dueDate {
   color: #0F4040;
+  min-width: 75px;
 }
 .card__header {
   display: flex;
@@ -372,7 +343,7 @@ main {
 .card.isDone {
   opacity: 0.7;
 }
-.card.isDone h3{
+.card.isDone h3 {
   text-decoration: line-through 2px;
 }
 
@@ -383,6 +354,21 @@ main {
 /*******************************************/
 
 @media screen and (max-width: 520px) {
+  body > header {
+    padding: 10px;
+  }
+  .body__header button {
+    padding: 2px;
+    border: 2px solid #060e23;
+    border-radius: 5px;
+    width: 120px;
+  }
+  .body__header button:first-of-type {
+    width: 80px;
+  }
+  .container {
+    display: block;
+  }
   nav {
     display: none;
   }
@@ -390,4 +376,4 @@ main {
     width: 100%;
   }
   
-}
+}  

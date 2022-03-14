@@ -37,7 +37,7 @@ export const hideAddTaskForm = () => {
 export const displayAddTaskForm = () => {
     const addTaskSection = document.querySelector(".add-task-section");
     addTaskSection.classList.add("popup");
-    addBlockDiv();
+    addBlockDiv("add-task");
 }    
 
 export const hideEditForm = () => {
@@ -50,5 +50,5 @@ export const hideEditForm = () => {
 export const displayEditForm = () => {
     const editSection = document.querySelector(".edit-section");
     editSection.classList.add("popup");
-    addBlockDiv();
+    addBlockDiv("edit");
 }    

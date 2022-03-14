@@ -28,36 +28,22 @@ export const userAddTask = () => {
     fillCard(refNumberOfNewTask);
     hideAddTaskForm();
 
-    if (document.querySelector(".tasks-list")) {
-        const tasksList = document.querySelector(".tasks-list");
-        const parent = tasksList.parentElement;
-        
-        if (parent.className === "uncategorised") {
-            populateProjectsInNav();
-            displayTasksByCategoryInNav("", "");
-        } else if (parent.className === "") {
-            let tasksByProject = JSON.parse(localStorage.getItem("tasksByProject"));
-            let catNumber = parent.dataset.cat;
-            const presentProject = tasksByProject[parent.dataset.cat].projectTitle;
-            if (presentProject === projectTitle) {
-                populateProjectsInNav();
-                displayTasksByCategoryInNav(catNumber, projectTitle)
-            } else {
-                populateProjectsInNav();
-                tasksByProject = JSON.parse(localStorage.getItem("tasksByProject"));
-                tasksByProject.forEach(task => {
-                    if (task.projectTitle === projectTitle) {
-                        catNumber = task.ref;
-                    }
-                })
-                displayTasksByCategoryInNav(catNumber, projectTitle)
-            }
-        }
+    populateProjectsInNav();
+    clearTasksByCategoryInNav();
 
-    } else {
-        populateProjectsInNav();
-    }
-    
+    let catNumber = 0;
+    if (projectTitle === "") {
+        displayTasksByCategoryInNav("", "");
+    } else if (projectTitle !== "") {
+        let tasksByProject = JSON.parse(localStorage.getItem("tasksByProject"));
+        tasksByProject.forEach(task => {
+            if (task.projectTitle === projectTitle) {
+                catNumber = task.ref;
+            }
+        })
+        displayTasksByCategoryInNav(catNumber, projectTitle)
+    };
+  
     let type = "";
     (projectTitle === "") ? (type = "Uncategorised") : (type = "Project");
     displayChosenProjectInMain(type, projectTitle);

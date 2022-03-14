@@ -1,4 +1,4 @@
-export const addBlockDiv = () => {
+export const addBlockDiv = (which) => {
     const body = document.querySelector("body");
     const blockDiv = document.createElement("div");
     blockDiv.setAttribute("id", "blockDiv");
@@ -6,9 +6,9 @@ export const addBlockDiv = () => {
     body.insertBefore(blockDiv, header);
 
     blockDiv.addEventListener('click', () => {
-        document.getElementById('add-task-form').reset();
-        const addTaskSection = document.querySelector(".add-task-section");
-        addTaskSection.classList.remove("popup");
+        document.getElementById(`${which}-form`).reset();
+        const whichSection = document.querySelector(`.${which}-section`);
+        whichSection.classList.remove("popup");
         removeBlockDiv();
     });
 }
