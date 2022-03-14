@@ -48,5 +48,4 @@ export const createCard = (refNumber) => {
     footer.appendChild(iconDelete);
 
     listenToCard(refNumber);
-
 }

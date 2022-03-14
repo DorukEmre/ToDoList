@@ -3,7 +3,6 @@ import { displayExistingLibrary } from "./display-existing-library";
 import { addTaskFormManagement, editFormManagement } from "./form-management";
 import { populateProjectsInNav } from "./populate-nav-projects";
 import { navListeners } from "./nav-listeners";
-import { format } from "date-fns";
 
 export const start = () => {
 

@@ -1,8 +1,6 @@
 import { retrieveMyTasksFromLocalStorage } from "./storage-management";
 import { addDays, format, isAfter, isBefore, isWithinInterval, parseISO } from 'date-fns'
 
-
-
 export const countTasksByDate = (typeOfDate) => {
         
     const myTasks = retrieveMyTasksFromLocalStorage();

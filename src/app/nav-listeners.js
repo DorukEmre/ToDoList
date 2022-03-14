@@ -1,7 +1,5 @@
-import { createCard } from "./create-card";
 import { displayChosenProjectInMain } from "./display-chosen-library"
 import { clearTasksByCategoryInNav, displayTasksByCategoryInNav } from "./display-tasks-in-nav"
-import { fillCard } from "./fill-card";
 
 export const navListeners  = () => {
 

@@ -85,20 +85,6 @@ export const updateTasksInNavIfDisplayed = () => {
             populateProjectsInNav();
             clearTasksByCategoryInNav();
             displayTasksByCategoryInNav(catNumber, presentProject)
-            // if (presentProject === projectTitle) {
-            //     populateProjectsInNav();
-            //     displayTasksByCategoryInNav(catNumber, projectTitle)
-            // } else {
-            //     populateProjectsInNav();
-            //     tasksByProject = JSON.parse(localStorage.getItem("tasksByProject"));
-            //     tasksByProject.forEach(task => {
-            //         if (task.projectTitle === projectTitle) {
-            //             catNumber = task.ref;
-            //         }
-            //     })
-            //     displayTasksByCategoryInNav(catNumber, projectTitle)
-            // }
         }
-
     }
 }

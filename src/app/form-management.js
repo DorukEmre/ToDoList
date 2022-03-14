@@ -1,6 +1,6 @@
 import { userAddTask } from "./add-task";
 import { addBlockDiv, removeBlockDiv } from "./block-div";
-import { editCard, submitEdit } from "./edit-card";
+import { submitEdit } from "./edit-card";
 
 export const addTaskFormManagement = () => {
     const addTaskForm = document.querySelector("#add-task-form");
